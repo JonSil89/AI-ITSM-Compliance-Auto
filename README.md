@@ -24,6 +24,7 @@ While the current implementation features a native **ClickUp AI integration**, t
 The system follows a modular **RAG (Retrieval-Augmented Generation)** pattern designed for high-compliance environments:
 
 ### High-Level Logic Flow
+
 ```mermaid
 graph TD
     A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
@@ -36,8 +37,6 @@ graph TD
     G[proof-html.yml] -.-> F
     H[auto-assign.yml] -.-> B
     end
-
-```mermaid
 graph TD
     subgraph Data_Ingestion
     A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
