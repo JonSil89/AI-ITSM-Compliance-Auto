@@ -21,9 +21,6 @@ While the current implementation features a native **ClickUp AI integration**, t
 
 ---
 
-## Run the Compliance Audit:
-Generate a real-time compliance report on your local machine in seconds.
-
 ```mermaid
 graph TD
     A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
@@ -38,6 +35,8 @@ graph TD
     end
 ```
 ---
+## Run the Compliance Audit:
+Generate a real-time compliance report on your local machine in seconds.
 
 ## DevSecOps Orchestration
 The repository includes an `orchestrate.sh` script to simulate automated quality gates. This script ensures that the AI-powered documentation and infrastructure components are aligned with high-compliance standards (ISO/MDR) before deployment.
