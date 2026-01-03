@@ -55,7 +55,7 @@ The repository includes an `orchestrate.sh` script to simulate automated quality
    cd AI-ITSM-Compliance-Auto
 
 **Run the orchestration:**
-`./orchestrate.sh`
+   2. run: `./orchestrate.sh`
 
 
 
