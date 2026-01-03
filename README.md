@@ -1,4 +1,4 @@
-# 🛡️ AI-ITSM Compliance Auto
+# AI-ITSM Compliance Auto
 ### Automated Compliance Workflows & AI-Powered Documentation
 
 [![AI ITSM Full Stack CI](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml/badge.svg)](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml)
