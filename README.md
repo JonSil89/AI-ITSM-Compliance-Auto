@@ -32,7 +32,18 @@ The repository includes an `orchestrate.sh` script to simulate automated quality
 
 **Run the orchestration:**
 `./orchestrate.sh`
+## 🚀 Quick Start: Run the Compliance Audit
+Follow these steps to generate a real-time compliance report on your local machine.
 
+### Prerequisites
+- A terminal (Bash/ZSH)
+- Git installed
+
+### Installation & Execution
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
+   cd AI-ITSM-Compliance-Auto
 ---
 
 ```mermaid
