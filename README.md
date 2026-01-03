@@ -65,29 +65,29 @@ graph TD
 ```
 
 
-## 🚀 Quick Start: Run the Compliance Audit
+🚀 Quick Start: Run the Compliance Audit
 Follow these steps to generate a real-time compliance report on your local machine.
 
 ### Prerequisites
 - A terminal (Bash/ZSH)
 - Git installed
 
-### Installation & Execution
+Installation & Execution
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
    cd AI-ITSM-Compliance-Auto
-## DevSecOps Orchestration
+DevSecOps Orchestration
 The repository includes an `orchestrate.sh` script to simulate automated quality gates. This script ensures that the AI-powered documentation and infrastructure components are aligned with high-compliance standards (ISO/MDR) before deployment.
 
-## View the Results:
+View the Results:
 
 Bash
 
  `cat Compliance_Audit_Report.txt`
 
 
-## 📊 Example Audit Output
+📊 Example Audit Output
 When you run the audit, the system generates a Compliance_Audit_Report.txt. Here is what the automated output looks like:
 
 Plaintext
