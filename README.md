@@ -35,16 +35,14 @@ graph TD
     end
 ```
 ---
-## Run the Compliance Audit:
-Generate a real-time compliance report on your local machine in seconds.
+## Quick Start: Run the Compliance Audit
+Follow these steps to generate a real-time compliance report on your local machine. Generate a real-time compliance report on your local machine in seconds.
 
 ## DevSecOps Orchestration
 The repository includes an `orchestrate.sh` script to simulate automated quality gates. This script ensures that the AI-powered documentation and infrastructure components are aligned with high-compliance standards (ISO/MDR) before deployment.
 
 **Run the orchestration:**
 `./orchestrate.sh`
-## Quick Start: Run the Compliance Audit
-Follow these steps to generate a real-time compliance report on your local machine.
 
 ### Prerequisites
 - A terminal (Bash/ZSH)
@@ -56,6 +54,8 @@ Follow these steps to generate a real-time compliance report on your local machi
    git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
    cd AI-ITSM-Compliance-Auto
 ---
+**Run the orchestration:**
+`./orchestrate.sh`
 
 ```mermaid
 graph TD
