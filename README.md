@@ -105,10 +105,14 @@ ITSM COMPLIANCE AUDIT REPORT
 Generated: 2026-01-03 17:55:30
 Environment: Local-Validation / GitHub Actions
 --------------------------------------------------
-✅ AI Engine: Status Active
-✅ Compliance Mapping: ISO 27001 (A.12.1.1) - PASSED
-✅ Operational Integrity: Validation Successful
-✅ Data Sovereignty: Verified
+✅ AI Engine: 
+Status Active
+✅ Compliance Mapping: 
+ISO 27001 (A.12.1.1) - PASSED
+✅ Operational Integrity: 
+Validation Successful
+✅ Data Sovereignty: 
+Verified
 --------------------------------------------------
 FINAL STATUS: SUCCESS
 --------------------------------------------------
