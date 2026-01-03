@@ -36,7 +36,7 @@ graph TD
     G[proof-html.yml] -.-> F
     H[auto-assign.yml] -.-> B
     end
-
+```mermaid
 graph TD
     subgraph Data_Ingestion
     A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
