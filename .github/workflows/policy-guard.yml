@@ -1,0 +1,45 @@
+name: Compliance & Policy Guard
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  policy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python_version: '3.10'
+
+      - name: Run Policy Validation
+        run: |
+          echo "Starting Policy-as-Code Validation..."
+          
+          # Tarkistus 1: Onko .env.example olemassa (Secrets Management)
+          if [ ! -f .env.example ]; then
+            echo "FAILED: .env.example missing. Secrets template is required for compliance."
+            exit 1
+          fi
+          
+          # Tarkistus 2: Onko README tarpeeksi kattava (Documentation standards)
+          README_SIZE=$(wc -c < README.md)
+          if [ $README_SIZE -lt 1000 ]; then
+            echo "FAILED: README.md is too short. Documentation does not meet MDR/ISO standards."
+            exit 1
+          fi
+
+          # Tarkistus 3: Tarkistetaan YAML-konfiguraatioiden rakenne
+          python3 -c "import yaml, os; [yaml.safe_load(open(f)) for f in os.listdir('.') if f.endswith('.yml')]"
+          
+          echo "SUCCESS: All policy checks passed."
+
+      - name: Generate Evidence Badge Data
+        if: success()
+        run: echo "POLICY_STATUS=passed" >> $GITHUB_ENV
