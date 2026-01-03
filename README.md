@@ -36,6 +36,7 @@ graph TD
     G[proof-html.yml] -.-> F
     H[auto-assign.yml] -.-> B
     end
+
 ```mermaid
 graph TD
     subgraph Data_Ingestion
