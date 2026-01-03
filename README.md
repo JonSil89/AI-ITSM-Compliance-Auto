@@ -78,23 +78,23 @@ Clone the repository:
 
 Bash
 
-git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
-cd AI-ITSM-Compliance-Auto
+`git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
+cd AI-ITSM-Compliance-Auto`
 Initialize settings:
 
 Bash
 
-cp .env.example .env
+`cp .env.example .env`
 Run the Orchestrator:
 
 Bash
 
-./orchestrate.sh
+`./orchestrate.sh`
 View the Results:
 
 Bash
 
-cat Compliance_Audit_Report.txt
+`cat Compliance_Audit_Report.txt`
 📊 Example Audit Output
 When you run the audit, the system generates a Compliance_Audit_Report.txt.
 
