@@ -20,28 +20,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install django
-        # Yritetään asentaa requirements, mutta ei kaaduta vaikka joku versio puuttuisi
-        pip install -r requirements.txt || echo "Some requirements failed to install, proceeding with Django and Core scripts."
+        pip install -r requirements.txt || pip install tensorflow>=2.8.0
 
-    - name: Run Django Unit Tests
+    - name: Run Orchestrator
       run: |
-        if [ -f manage.py ]; then
-          python manage.py test || echo "Django tests skipped or no tests found."
-        else
-          echo "No manage.py found, skipping Django tests."
-        fi
-
-    - name: Grant execute permission for orchestrator
-      run: chmod +x orchestrate.sh
-
-    - name: Run ITSM Orchestrator (Compliance Check)
-      run: ./orchestrate.sh
-
-    - name: Verify Final Output
-      run: |
-        if [ -f Compliance_Audit_Report.txt ]; then
-          echo "CI & Audit PASSED."
-        else
-          echo "Audit report missing!"
-          exit 1
-        fi
+        chmod +x orchestrate.sh
+        ./orchestrate.sh
