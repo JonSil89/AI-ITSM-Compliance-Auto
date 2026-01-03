@@ -101,7 +101,7 @@ When you run the audit, the system generates a `Compliance_Audit_Report.txt.`
 Plaintext
 
 --------------------------------------------------
-ITSM COMPLIANCE AUDIT REPORT
+ITSM COMPLIANCE AUDIT REPORT:
 Generated: 2026-01-03 17:55:30
 Environment: Local-Validation / GitHub Actions
 --------------------------------------------------
