@@ -96,7 +96,7 @@ Bash
 
 `cat Compliance_Audit_Report.txt`
 📊 Example Audit Output
-When you run the audit, the system generates a Compliance_Audit_Report.txt.
+When you run the audit, the system generates a `Compliance_Audit_Report.txt.`
 
 Plaintext
 
