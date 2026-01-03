@@ -75,24 +75,22 @@ The repository includes an `orchestrate.sh` script to simulate automated quality
 **Run the orchestration:**
 `./orchestrate.sh`
 
-Quick Start: Run the Compliance Audit
+## 🚀 Quick Start: Run the Compliance Audit
 Follow these steps to generate a real-time compliance report on your local machine.
 
-Prerequisites
-A terminal (Bash/ZSH)
+### Prerequisites
+- A terminal (Bash/ZSH)
+- Git installed
 
-Git installed
-
-Installation & Execution
-Clone the repository:
-
-Bash
-
-git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
-cd AI-ITSM-Compliance-Auto
-Initialize settings: (Creates your local config from the provided template)
+### Installation & Execution
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git](https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git)
+   cd AI-ITSM-Compliance-Auto
 
 Bash
+**Run the orchestration:**
+`./orchestrate.sh`
 
 cp .env.example .env
 Run the Orchestrator:
