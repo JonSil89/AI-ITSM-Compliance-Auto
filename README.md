@@ -42,11 +42,6 @@ graph TD
 ```
 ---
 
-## DevSecOps Orchestration
-The repository includes an `orchestrate.sh` script to simulate automated quality gates. This script ensures that the AI-powered documentation and infrastructure components are aligned with high-compliance standards (ISO/MDR) before deployment.
-
-**Run the orchestration:**
-`./orchestrate.sh`
 
 ---
 
@@ -96,7 +91,6 @@ Bash
 
 ## cp .env.example .env
 
-###Bash
 ## 
 `./orchestrate.sh`
 ## View the Results:
