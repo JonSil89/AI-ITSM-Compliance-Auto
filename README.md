@@ -47,47 +47,47 @@ graph TD
 ```
 
 
-🚀 Quick Start: 
-Run the Compliance Audit
+### 🚀 Quick Start: 
+## Run the Compliance Audit
 Follow these steps to generate a real-time compliance report on your local machine.
 
 Prerequisites
 Terminal: 
 
-Bash or ZSH (Linux/macOS/WSL)
+## Bash or ZSH (Linux/macOS/WSL)
 
-Tools: Git, Python 3.10+, and Terraform 0.15.3+
+## Tools: Git, Python 3.10+, and Terraform 0.15.3+
 
-Installation & Execution
+## Installation & Execution
 
 1. Clone the Repository
 
-Bash
+## Bash
 
 `git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git
 cd AI-ITSM-Compliance-Auto`
 
 2. Initialize the Environment
 
-Bash
+## Bash
 
 `pip install -r requirements.txt
 cp .env.example .env`
 
 3. Run the Orchestration Suite Tämä skripti käynnistää validointiportit ja generoi raportin:
 
-Bash
+## Bash
 
 `chmod +x orchestrate.sh
 ./orchestrate.sh`
 
 4. View Results
 
-Bash
+## Bash
 
 `cat Compliance_Audit_Report.txt`
 
-📊 Example Audit Output
+**📊 Example Audit Output**
 
 When you run the audit, the system generates a
 
