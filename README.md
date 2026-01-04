@@ -64,7 +64,7 @@ Clone the Repository
 
 Bash
 
-`git clone https://github.com/your-username/AI-ITSM-Compliance-Auto.git`
+`git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git`
 `cd AI-ITSM-Compliance-Auto`
 
 Initialize the Environment Setup dependencies and secrets template
