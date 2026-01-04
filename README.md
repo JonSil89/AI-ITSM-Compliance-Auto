@@ -58,57 +58,34 @@ Bash or ZSH (Linux/macOS/WSL)
 
 Tools: Git, Python 3.10+, and Terraform 0.15.3+
 
-🛠️ Installation & Execution
+Installation & Execution
 
-Clone the Repository
-
-Bash
-
-`git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git`
-`cd AI-ITSM-Compliance-Auto`
-
-Initialize the Environment Setup dependencies and secrets template
+1. Clone the Repository
 
 Bash
 
-`pip install -r requirements.txt`
-`cp .env.example .env`
-`Run the Orchestration Suite `
+`git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git
+cd AI-ITSM-Compliance-Auto`
 
-This script triggers the validation gates and generates the report.
-
-Bash
-
-`chmod +x orchestrate.sh`
-`./orchestrate.sh`
-
-View Results The compliance report will be generated in Markdown format in the root directory
-
+2. Initialize the Environment
 
 Bash
 
-`git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git`
+`pip install -r requirements.txt
+cp .env.example .env`
 
-`cd AI-ITSM-Compliance-Auto`
-
-Initialize settings
-
-Bash
-
-`cp .env.example .env`
-
-Run the Orchestrator:
+3. Run the Orchestration Suite Tämä skripti käynnistää validointiportit ja generoi raportin:
 
 Bash
 
-`./orchestrate.sh`
+`chmod +x orchestrate.sh
+./orchestrate.sh`
 
-View the Results:
+4. View Results
 
 Bash
 
 `cat Compliance_Audit_Report.txt`
-
 
 📊 Example Audit Output
 
