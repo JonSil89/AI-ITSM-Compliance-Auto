@@ -153,3 +153,5 @@ Driving value through automation and risk management.
 | **Efficiency** | **40h/month saved** | Automates manual compliance reviews, allowing the team to focus on core development. |
 | **Risk Mitigation** | **ISO-27001 Mapping** | Ensures all ITSM processes are 100% cross-referenced against global standards. |
 | **Scalability** | **Decoupled Architecture** | Easy integration with existing enterprise workflows (ClickUp, Jira, AWS). |
+
+## 🛑 Non-goals & Known Constraints
