@@ -29,24 +29,6 @@ The system follows a modular **RAG (Retrieval-Augmented Generation)** pattern de
 
 ```mermaid
 graph TD
-    A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
-    B --> C[embeddings_generator.py]
-    C --> D[(Vector Database / FAISS)]
-    D --> E[query_engine.py]
-    E --> F[Compliance-Aware AI Output]
-    
-    subgraph Validation Layer
-    G[proof-html.yml] -.-> F
-    H[auto-assign.yml] -.-> B
-    end
-```
----
-
-
----
-
-```mermaid
-graph TD
     subgraph Data_Ingestion
     A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
     end
