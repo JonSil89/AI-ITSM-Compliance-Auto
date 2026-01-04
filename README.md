@@ -89,8 +89,10 @@ When you run the audit, the system generates a
 
 --------------------------------------------------
 ITSM COMPLIANCE AUDIT REPORT
-Generated: 2026-01-03 17:55:30
-Environment: Local-Validation / GitHub Actions
+Generated: 
+2026-01-03 17:55:30
+Environment: 
+Local-Validation / GitHub Actions
 --------------------------------------------------
 ✅ AI Engine: 
 Status Active
@@ -101,7 +103,8 @@ Validation Successful
 ✅ Data Sovereignty: 
 Verified
 --------------------------------------------------
-FINAL STATUS: SUCCESS
+FINAL STATUS: 
+SUCCESS
 --------------------------------------------------
 
 
