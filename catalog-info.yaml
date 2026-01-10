@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ai-itsm-compliance-auto
+  description: Automated ITSM documentation workflows and AI-powered compliance auditing.
+  annotations:
+ 
+    backstage.io/techdocs-ref: dir:.
+  
+    github.com/project-slug: Jonnenpijonne/AI-ITSM-Compliance-Auto
+  tags:
+    - ai
+    - compliance
+    - itsm
+    - automation
+    - iso-27001
+spec:
+  type: service
+  lifecycle: experimental
+  owner: jonne-silvennoinen
+  system: compliance-management-system
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: jonne-silvennoinen
+spec:
+  profile:
+    displayName: Jonne Silvennoinen
+    email: jonne.silvennoinen89@gmail.com
+    picture: https://www.linkedin.com/in/jonne-silvennoinen-0421aa266/ 
+  memberOf: [quality-ops-team]
