@@ -4,6 +4,9 @@
 [![AI ITSM Full Stack CI](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml/badge.svg)](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml)
 [![Compliance & Policy Guard](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/policy-guard.yml/badge.svg)](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/policy-guard.yml)
 
+
+​"My project isn't a pentesting tool, but it follows the same logic as modern AI-driven security platforms like Aikido. It utilizes autonomous agents, automated validation, and false-positive control to deliver audit-ready results—but specifically targeting ITSM and compliance processes."
+
 ## 🌟 Project Mission
 This project automates **ITSM documentation workflows** and **compliance auditing** using AI-driven analysis (RankLSTM) and DevSecOps orchestration. 
 
