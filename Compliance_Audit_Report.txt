@@ -1,12 +1,30 @@
---------------------------------------------------
 ITSM COMPLIANCE AUDIT REPORT
-Generated: 2026-01-03 15:13:24
+Generated: 2026-06-12 18:00:19
 Environment: Local-Validation / GitHub Actions
+Scope: Repository-state evidence validation
 --------------------------------------------------
-✅ AI Engine: Status Active
-✅ Compliance Mapping: ISO 27001 (A.12.1.1) - PASSED
-✅ Operational Integrity: Validation Successful
-✅ Data Sovereignty: Verified
+Status | Component | Details
 --------------------------------------------------
-FINAL STATUS: SUCCESS
+PASS | Documentation baseline | README.md found
+PASS | Environment template | .env.example found
+PASS | Python dependency manifest | requirements.txt found
+PASS | Audit orchestrator | orchestrate.sh found
+PASS | CI workflow | .github/workflows/compliance-check.yml found
+PASS | Policy guard workflow | .github/workflows/policy-guard.yml found
+PASS | Smoke test | tests/smoke/test_infra.py found
+PASS | Documentation directory | docs found
+PASS | Control mapping directory | docs/controls found
+PASS | Evidence directory | docs/evidence found
+PASS | Policy documentation directory | docs/policies found
+PASS | Architecture documentation directory | docs/architecture found
+PASS | ISO 27001 control mapping | docs/controls/ISO27001_CONTROL_MAPPING.md found
+PASS | Audit evidence template | docs/evidence/AUDIT_EVIDENCE_TEMPLATE.md found
+PASS | Validation report example | docs/evidence/VALIDATION_REPORT_EXAMPLE.md found
+PASS | Policy-as-code model | docs/policies/POLICY_AS_CODE_MODEL.md found
+PASS | System boundary model | docs/architecture/SYSTEM_BOUNDARIES.md found
+PASS | AI boundary model | docs/architecture/AI_BOUNDARY_MODEL.md found
+WARN | Smoke test target | Target URL not configured; smoke test should skip
+WARN | Ranking component | Legacy prototype present; not active CI path
 --------------------------------------------------
+Summary: PASS=18 WARN=2 FAIL=0
+FINAL STATUS: PASSED_WITH_WARNINGS
