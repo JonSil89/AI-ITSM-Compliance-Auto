@@ -15,7 +15,7 @@ line() {
 }
 
 md_line() {
-  echo "$1" >> "$REPORT_MD"
+  echo "${1:-}" >> "$REPORT_MD"
 }
 
 record_result() {
