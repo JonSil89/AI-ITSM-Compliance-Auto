@@ -16,30 +16,35 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python_version: '3.10'
+          python-version: '3.10'
 
       - name: Run Policy Validation
         run: |
           echo "Starting Policy-as-Code Validation..."
-          
-          # Tarkistus 1: Onko .env.example olemassa (Secrets Management)
-          if [ ! -f .env.example ]; then
-            echo "FAILED: .env.example missing. Secrets template is required for compliance."
-            exit 1
-          fi
-          
-          # Tarkistus 2: Onko README tarpeeksi kattava (Documentation standards)
+
+          required_files=(
+            README.md
+            .env.example
+            orchestrate.sh
+            docs/controls/ISO27001_CONTROL_MAPPING.md
+            docs/evidence/AUDIT_EVIDENCE_TEMPLATE.md
+            docs/evidence/VALIDATION_REPORT_EXAMPLE.md
+            docs/policies/POLICY_AS_CODE_MODEL.md
+            docs/architecture/SYSTEM_BOUNDARIES.md
+            docs/architecture/AI_BOUNDARY_MODEL.md
+          )
+
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "FAILED: missing required file: $file"
+              exit 1
+            fi
+          done
+
           README_SIZE=$(wc -c < README.md)
-          if [ $README_SIZE -lt 1000 ]; then
-            echo "FAILED: README.md is too short. Documentation does not meet MDR/ISO standards."
+          if [ "$README_SIZE" -lt 1000 ]; then
+            echo "FAILED: README.md is too short for the documentation baseline."
             exit 1
           fi
 
-          # Tarkistus 3: Tarkistetaan YAML-konfiguraatioiden rakenne
-          python3 -c "import yaml, os; [yaml.safe_load(open(f)) for f in os.listdir('.') if f.endswith('.yml')]"
-          
           echo "SUCCESS: All policy checks passed."
-
-      - name: Generate Evidence Badge Data
-        if: success()
-        run: echo "POLICY_STATUS=passed" >> $GITHUB_ENV
