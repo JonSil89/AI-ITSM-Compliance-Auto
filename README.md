@@ -1,139 +1,196 @@
 # AI-ITSM Compliance Auto
-### Automated Compliance Workflows & AI-Powered Documentation
+
+### Proof-of-concept for ITSM compliance evidence automation
 
 [![AI ITSM Full Stack CI](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml/badge.svg)](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/compliance-check.yml)
 [![Compliance & Policy Guard](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/policy-guard.yml/badge.svg)](https://github.com/JonSil89/AI-ITSM-Compliance-Auto/actions/workflows/policy-guard.yml)
 
+AI-ITSM Compliance Auto is a proof-of-concept for bringing ITSM documentation, compliance evidence and lightweight policy-as-code checks into a CI/CD workflow.
 
-​"My project isn't a pentesting tool, but it follows the same logic as modern AI-driven security platforms like Aikido. It utilizes autonomous agents, automated validation, and false-positive control to deliver audit-ready results—but specifically targeting ITSM and compliance processes."
+The project demonstrates CI-triggered audit report generation, repository-state validation, smoke testing and a future AI-assisted ranking layer for prioritizing documentation and compliance risks.
 
-## 🌟 Project Mission
-This project automates **ITSM documentation workflows** and **compliance auditing** using AI-driven analysis (RankLSTM) and DevSecOps orchestration. 
-
-### 🔌 Integration & Scalability
-While the current implementation features a native **ClickUp AI integration**, the core engine is **platform-agnostic**. The modular architecture allows for seamless integration with:
-- **ITSM Tools:** Jira, ServiceNow, Zendesk.
-- **Data Sources:** Local markdown repositories, Cloud storage, or custom APIs.
-- **Compliance Frameworks:** ISO-27001, GDPR, MDR, or HIPAA.
-
-### 🛡️ Core Capabilities
-- **Automated ISO-27001 Mapping:** Automatically cross-references ITSM actions against international security standards.
-- **AI Ranking Engine:** Uses RankLSTM to prioritize critical documentation updates based on compliance risk.
-- **Zero-Touch Auditing:** Generate full compliance reports in seconds using the built-in orchestrator.
+This is not a production-ready audit platform.
 
 ---
 
-## 🏗️ Architecture Overview
-The system follows a modular **RAG (Retrieval-Augmented Generation)** pattern designed for high-compliance environments.
+## Project mission
 
-### High-Level Logic Flow
+The goal is to show a practical baseline for:
+
+- CI-triggered compliance evidence generation
+- lightweight policy-as-code validation
+- ITSM documentation control mapping
+- smoke testing through environment-specific variables
+- audit report generation from repository state
+- future AI-assisted documentation risk ranking
+
+The project is intentionally scoped as a portfolio-grade POC. It is designed to be understandable, reviewable and extendable without claiming full enterprise GRC readiness.
 
 ---
+
+## Current capabilities
+
+| Capability | Current status | Notes |
+| --- | --- | --- |
+| Audit report generation | Working POC | `orchestrate.sh` generates `Compliance_Audit_Report.txt` |
+| GitHub Actions CI | Working POC | Runs tests and orchestrator |
+| Policy Guard | Working POC | Validates required files and documentation baseline |
+| Smoke testing | Configurable | Uses `SMOKE_TEST_URL`; skips safely when not configured |
+| ISO 27001 mapping | Documentation baseline | See `docs/controls/ISO27001_CONTROL_MAPPING.md` |
+| AI ranking component | Legacy / research-inspired | RankLSTM code is included as a prototype component, not the active CI path |
+| AWS CodeBuild | Optional example | `buildspec.yml` is a guarded example and does not apply Terraform automatically |
+
+---
+
+## Architecture overview
 
 ```mermaid
-graph TD
-    subgraph Data_Ingestion
-    A[Raw ITSM Docs / ClickUp API] --> B[ingest_to_vector_db.py]
-    end
-
-    subgraph AI_Intelligence_Layer
-    B --> C[embeddings_generator.py]
-    C --> D[(Vector Database / FAISS)]
-    D --> E[RankLSTM Engine]
-    E --> F[Contextual Ranking Refinement]
-    end
-    
-    subgraph Operational_Output
-    F --> G[Compliance-Aware AI Output]
-    F --> H[Live AI-Dashboard]
-    end
+flowchart TD
+    A[ITSM / compliance repository] --> B[Policy Guard]
+    A --> C[Orchestrator]
+    A --> D[Smoke Tests]
+    B --> E[Required files and docs validation]
+    C --> F[Compliance_Audit_Report.txt]
+    D --> G[Environment reachability check]
+    H[Legacy RankLSTM prototype] -. future ranking component .-> C
+    F --> I[Audit evidence]
+    E --> I
+    G --> I
 ```
 
+---
 
-### 🚀 Quick Start: 
-## Run the Compliance Audit
-Follow these steps to generate a real-time compliance report on your local machine.
+## Quick start
 
-Prerequisites
-Terminal: 
+### Requirements
 
-## Bash or ZSH (Linux/macOS/WSL)
+- Git
+- Python 3.10+
+- Bash or compatible shell
 
-## Tools: Git, Python 3.10+, and Terraform 0.15.3+
+### Clone
 
-## Installation & Execution
+```bash
+git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git
+cd AI-ITSM-Compliance-Auto
+```
 
-Clone the Repository
+### Install dependencies
 
-## Bash
+```bash
+pip install -r requirements.txt
+cp .env.example .env
+```
 
-`git clone https://github.com/JonSil89/AI-ITSM-Compliance-Auto.git`
+### Run tests
 
-`cd AI-ITSM-Compliance-Auto`
+```bash
+pytest -q
+```
 
-Initialize the Environment
+### Run local audit evidence generation
 
-## Bash
-
-`pip install -r requirements.txt`
-
-`cp .env.example .env`
-
-Run the Orchestration Suite Tämä skripti käynnistää validointiportit ja generoi raportin:
-
-## Bash
-
-`chmod +x orchestrate.sh`
-
-`./orchestrate.sh`
-
-View Results
-
-## Bash
-
-`cat Compliance_Audit_Report.txt`
-
-**📊 Example Audit Output**
-
-When you run the audit, the system generates a
-
-`Compliance_Audit_Report.txt.`
+```bash
+chmod +x orchestrate.sh
+./orchestrate.sh
+cat Compliance_Audit_Report.txt
+```
 
 ---
 
-### 📄 ITSM Compliance Audit Report
+## Optional smoke test target
 
-**Generated:** `2026-01-03 17:55:30`
+Infrastructure smoke testing is environment-specific.
 
-**Environment:** `Local-Validation / GitHub Actions`
+Set `SMOKE_TEST_URL` only when a real test target exists:
 
-| Component | Status | Details |
-| --- | --- | --- |
-| **AI Engine** | ✅ ACTIVE | Model RankLSTM is operational. |
-| **Compliance Mapping** | ✅ PASSED | ISO 27001 (A.12.1.1) requirements met. |
-| **Operational Integrity** | ✅ SUCCESS | Validation logic verified. |
-| **Data Sovereignty** | ✅ VERIFIED | Data residency policies enforced. |
+```bash
+export SMOKE_TEST_URL="https://example.com/health"
+pytest tests/smoke/test_infra.py
+```
 
-**FINAL STATUS:** `[ SUCCESS ]` – *System is compliant and ready for production.*
+If `SMOKE_TEST_URL` is empty, the smoke test is skipped instead of failing against a placeholder URL.
 
 ---
 
-## 🛡️ DevSecOps & Automated Testing
-Ensuring infrastructure and AI alignment with ISO/MDR compliance standards.
+## Repository structure
 
-* **GitHub Actions:** Every commit triggers a full audit sweep via `compliance-check.yml` to prevent regression.
-* **Policy Guard:** Automated validation layer for all ITSM policy updates, ensuring zero-drift compliance.
-* **Orchestration Script:** The `orchestrate.sh` tool simulates production-ready validation gates locally for faster feedback loops.
+```text
+.github/workflows/
+docs/architecture/
+docs/controls/
+docs/evidence/
+docs/policies/
+tests/smoke/
+RankLSTM_model.py
+data_utils.py
+main.py
+orchestrate.sh
+requirements.txt
+buildspec.yml
+.env.example
+```
 
+---
 
+## Legacy RankLSTM component
 
-## 📈 Business Impact
-Driving value through automation and risk management.
+The RankLSTM files are included as a legacy / research-inspired ranking prototype based on listwise ranking refinement concepts.
 
-| Key Metric | Impact | Strategic Value |
-| :--- | :--- | :--- |
-| **Efficiency** | **40h/month saved** | Automates manual compliance reviews, allowing the team to focus on core development. |
-| **Risk Mitigation** | **ISO-27001 Mapping** | Ensures all ITSM processes are 100% cross-referenced against global standards. |
-| **Scalability** | **Decoupled Architecture** | Easy integration with existing enterprise workflows (ClickUp, Jira, AWS). |
+They are not required for the current CI audit demo.
 
-## 🛑 Non-goals & Known Constraints
+Current active validation path:
+
+```text
+policy guard -> pytest -> orchestrate.sh -> Compliance_Audit_Report.txt
+```
+
+Future direction:
+
+```text
+ITSM evidence items -> risk features -> ranking model -> prioritized documentation review queue
+```
+
+---
+
+## DevSecOps and policy-as-code model
+
+The project uses GitHub Actions to validate the repository on changes.
+
+Current checks include:
+
+- dependency installation
+- pytest execution
+- smoke test skip/pass behavior
+- orchestrator execution
+- required documentation baseline checks
+- audit report generation
+
+This demonstrates the workflow pattern rather than a complete enterprise compliance solution.
+
+---
+
+## Non-goals and known constraints
+
+This project is not:
+
+- a production audit system
+- a certified ISO 27001 compliance tool
+- a full GRC platform
+- a production RAG stack
+- a production AI agent system
+- a complete ITSM integration layer
+- a production Terraform deployment model
+
+Known constraints:
+
+- RankLSTM code is legacy/research-style and not part of the active CI path.
+- ISO 27001 mapping is a lightweight documentation baseline, not a complete ISMS.
+- Smoke testing requires a real environment URL through `SMOKE_TEST_URL`.
+- Generated audit evidence is repository-state evidence, not an external compliance certification.
+
+---
+
+## Portfolio framing
+
+> This repository demonstrates a proof-of-concept for ITSM compliance evidence automation: CI-triggered audit report generation, lightweight policy-as-code checks, smoke testing, ISO 27001 control mapping and a future AI-ranking component for documentation risk prioritization.
