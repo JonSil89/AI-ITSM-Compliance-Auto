@@ -33,12 +33,12 @@ The project is intentionally scoped as a portfolio-grade POC. It is designed to 
 | Capability | Current status | Notes |
 | --- | --- | --- |
 | Audit report generation | Working POC | `orchestrate.sh` generates `Compliance_Audit_Report.txt` |
-| GitHub Actions CI | Working POC | Runs tests and orchestrator |
+| GitHub Actions CI | Working POC | Runs the orchestrator |
 | Policy Guard | Working POC | Validates required files and documentation baseline |
 | Smoke testing | Configurable | Uses `SMOKE_TEST_URL`; skips safely when not configured |
 | ISO 27001 mapping | Documentation baseline | See `docs/controls/ISO27001_CONTROL_MAPPING.md` |
 | AI ranking component | Legacy / research-inspired | RankLSTM code is included as a prototype component, not the active CI path |
-| AWS CodeBuild | Optional example | `buildspec.yml` is a guarded example and does not apply Terraform automatically |
+| AWS CodeBuild | Legacy example | `buildspec.yml` needs separate cleanup before use |
 
 ---
 
@@ -160,7 +160,6 @@ The project uses GitHub Actions to validate the repository on changes.
 Current checks include:
 
 - dependency installation
-- pytest execution
 - smoke test skip/pass behavior
 - orchestrator execution
 - required documentation baseline checks
@@ -180,7 +179,6 @@ This project is not:
 - a production RAG stack
 - a production AI agent system
 - a complete ITSM integration layer
-- a production Terraform deployment model
 
 Known constraints:
 
@@ -188,6 +186,7 @@ Known constraints:
 - ISO 27001 mapping is a lightweight documentation baseline, not a complete ISMS.
 - Smoke testing requires a real environment URL through `SMOKE_TEST_URL`.
 - Generated audit evidence is repository-state evidence, not an external compliance certification.
+- `buildspec.yml` is legacy and still needs separate cleanup.
 
 ---
 
