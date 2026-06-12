@@ -1,5 +1,8 @@
 # Optional legacy RankLSTM research prototype dependencies.
 # Not required for the active CI compliance evidence demo.
-# TensorFlow 1.x compatibility may require an older Python/Linux environment.
+# TensorFlow compatibility depends on Python and operating system version.
 
+numpy
+six
 tensorflow>=2.8.0
+boto3>=1.26.0
