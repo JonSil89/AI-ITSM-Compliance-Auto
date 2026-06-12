@@ -2,28 +2,44 @@
 set -euo pipefail
 
 REPORT_FILE="Compliance_Audit_Report.txt"
+REPORT_MD="docs/evidence/runs/LOCAL_VALIDATION_REPORT.md"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 PASS_COUNT=0
 WARN_COUNT=0
 FAIL_COUNT=0
 
+mkdir -p docs/evidence/runs
+
 line() {
   echo "$1" >> "$REPORT_FILE"
 }
 
+md_line() {
+  echo "$1" >> "$REPORT_MD"
+}
+
+record_result() {
+  local status="$1"
+  local component="$2"
+  local details="$3"
+
+  line "$status | $component | $details"
+  md_line "| $status | $component | $details |"
+}
+
 pass() {
   PASS_COUNT=$((PASS_COUNT + 1))
-  line "PASS | $1 | $2"
+  record_result "PASS" "$1" "$2"
 }
 
 warn() {
   WARN_COUNT=$((WARN_COUNT + 1))
-  line "WARN | $1 | $2"
+  record_result "WARN" "$1" "$2"
 }
 
 fail() {
   FAIL_COUNT=$((FAIL_COUNT + 1))
-  line "FAIL | $1 | $2"
+  record_result "FAIL" "$1" "$2"
 }
 
 check_file() {
@@ -51,6 +67,21 @@ check_dir() {
   echo "Status | Component | Details"
   echo "--------------------------------------------------"
 } > "$REPORT_FILE"
+
+{
+  echo "# Local Validation Report"
+  echo
+  echo "| Field | Value |"
+  echo "| --- | --- |"
+  echo "| Generated | $TIMESTAMP |"
+  echo "| Environment | Local-Validation / GitHub Actions |"
+  echo "| Scope | Repository-state evidence validation |"
+  echo
+  echo "## Results"
+  echo
+  echo "| Status | Component | Details |"
+  echo "| --- | --- | --- |"
+} > "$REPORT_MD"
 
 check_file "README.md" "Documentation baseline"
 check_file ".env.example" "Environment template"
@@ -88,17 +119,32 @@ fi
 line "--------------------------------------------------"
 line "Summary: PASS=$PASS_COUNT WARN=$WARN_COUNT FAIL=$FAIL_COUNT"
 
+md_line
+md_line "## Summary"
+md_line
+md_line "| Metric | Count |"
+md_line "| --- | ---: |"
+md_line "| PASS | $PASS_COUNT |"
+md_line "| WARN | $WARN_COUNT |"
+md_line "| FAIL | $FAIL_COUNT |"
+
 if [ "$FAIL_COUNT" -gt 0 ]; then
   line "FINAL STATUS: FAILED"
-  echo "FAILED: audit report generated with failed checks: $REPORT_FILE"
+  md_line
+  md_line "**FINAL STATUS:** FAILED"
+  echo "FAILED: audit reports generated with failed checks: $REPORT_FILE and $REPORT_MD"
   exit 1
 fi
 
 if [ "$WARN_COUNT" -gt 0 ]; then
   line "FINAL STATUS: PASSED_WITH_WARNINGS"
-  echo "PASSED_WITH_WARNINGS: audit report generated: $REPORT_FILE"
+  md_line
+  md_line "**FINAL STATUS:** PASSED_WITH_WARNINGS"
+  echo "PASSED_WITH_WARNINGS: audit reports generated: $REPORT_FILE and $REPORT_MD"
   exit 0
 fi
 
 line "FINAL STATUS: PASSED"
-echo "PASSED: audit report generated: $REPORT_FILE"
+md_line
+md_line "**FINAL STATUS:** PASSED"
+echo "PASSED: audit reports generated: $REPORT_FILE and $REPORT_MD"
